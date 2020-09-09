@@ -51,7 +51,7 @@ function getLevelForExp(exp) {
 }
 
 function pressedEnter(e) {
-  if((e && e.keyCode == 13) || e == 0) {
+  if ((e && e.keyCode == 13) || e == 0) {
     submitted();
   }
 }
@@ -69,16 +69,27 @@ function submitted() {
       if (body.player) {
         if (body.player.stats) {
           if (body.player.stats.Bedwars) {
-            var finals = body.player.stats.Bedwars.eight_one_final_kills_bedwars + body.player.stats.Bedwars.eight_two_final_kills_bedwars + body.player.stats.Bedwars.four_four_final_kills_bedwars + body.player.stats.Bedwars.four_three_final_kills_bedwars + body.player.stats.Bedwars.two_four_final_kills_bedwars
             var deaths = body.player.stats.Bedwars.eight_one_final_deaths_bedwars + body.player.stats.Bedwars.eight_two_final_deaths_bedwars + body.player.stats.Bedwars.four_four_final_deaths_bedwars + body.player.stats.Bedwars.four_three_final_deaths_bedwars + body.player.stats.Bedwars.two_four_final_deaths_bedwars
             if (isNaN(deaths)) {
               deaths = 1;
             }
-            if (isNaN(finals)) {
-              finals = 0;
+            if (isNaN(body.player.stats.Bedwars.eight_one_final_kills_bedwars)) {
+              body.player.stats.Bedwars.eight_one_final_kills_bedwars = 0;
             }
+            if (isNaN(body.player.stats.Bedwars.eight_two_final_kills_bedwars)) {
+              body.player.stats.Bedwars.eight_two_final_kills_bedwars = 0
+            }
+            if (isNaN(body.player.stats.Bedwars.four_four_final_kills_bedwars)) {
+              body.player.stats.Bedwars.four_four_final_kills_bedwars = 0
+            }
+            if (isNaN(body.player.stats.Bedwars.four_three_final_kills_bedwars)) {
+              body.player.stats.Bedwars.four_three_final_kills_bedwars = 0
+            }
+            if (isNaN(body.player.stats.Bedwars.two_four_final_kills_bedwars)) {
+              body.player.stats.Bedwars.two_four_final_kills_bedwars = 0
+            }
+                        var finals = body.player.stats.Bedwars.eight_one_final_kills_bedwars + body.player.stats.Bedwars.eight_two_final_kills_bedwars + body.player.stats.Bedwars.four_four_final_kills_bedwars + body.player.stats.Bedwars.four_three_final_kills_bedwars + body.player.stats.Bedwars.two_four_final_kills_bedwars
             text.innerHTML = "Level: " + getLevelForExp(body.player.stats.Bedwars.Experience) + '</br> Beds Broken: ' + body.player.stats.Bedwars.beds_broken_bedwars + '</br> Final Kills: ' + finals + '</br> Fkdr: ' + Math.round(finals / deaths * 100) / 100 + '</br> Winstreak: ' + body.player.stats.Bedwars.winstreak;
-            console.log(body.player.stats.Bedwars)
           } else {
             text.innerHTML = "This account does not have any Bedwars stats."
           }

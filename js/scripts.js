@@ -4,6 +4,8 @@ const XP_PER_PRESTIGE = 96 * 5000 + EASY_LEVELS_XP;
 const LEVELS_PER_PRESTIGE = 100;
 const HIGHEST_PRESTIGE = 10;
 
+const config = require("./config.json");
+
 function getExpForLevel(level) {
   if (level == 0) return 0;
 
@@ -56,15 +58,16 @@ function pressedEnter(e) {
   }
 }
 
+
 function submitted() {
   const request = require('request')
   const mojangjs = require('mojangjs');
   var text = document.getElementById("level");
-  text.innerHTML = "";
+  text.innerHTML = "Loading..";
   mojangjs.getUUID(document.getElementById("uNameInput").value).then(uuid => {
     request({
       json: true,
-      uri: 'https://api.hypixel.net/player?key=f0b44d7c-4168-456a-8fe7-2322dacd662e&uuid=' + uuid
+      uri: `https://api.hypixel.net/player?key=${config.key}&uuid=${uuid}`
     }, (err, res, body) => {
       if (body.player) {
         if (body.player.stats) {

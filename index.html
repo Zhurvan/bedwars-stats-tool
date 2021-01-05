@@ -8,14 +8,22 @@
     <link rel="stylesheet" href="css/styles.css?v=1.0">
   </head>
   <body>
-    <h1>Bedwars Stats Finder</h1>
-    <div onKeyPress="pressedEnter(event)">
-      <form id="form01" action="" onsubmit="return false;" >
-        <input type="text" id="uNameInput" name="uName"></input>
-    <input type="button" value="Submit" onclick="submitted()">
-  </form>
+    <div class="wrapper">
+      <span class="title-text disable-select">Bedwars Stats Finder</span> <br>
+      <span class="title-text subtitle-text disable-select">Enter a username below to find their Bedwars stats.</span>
+      <div onKeyPress="pressedEnter(event)">
+        <form id="form01" action="" onsubmit="return false;" >
+          <input type="text" id="uNameInput" name="uName" class="input-box"></input>
+      <input type="button" value="SUBMIT" onclick="submitted()" class="input-button">
+    </form>
+      </div>
+      
+      <div class="data-wrapper">
+        <p id="level">Enter a name</p>
+      </div>
+
+      <p id="footer">Created by Bubblebyb (<a href="https://github.com/Bubblebyb/bedwars-stats-tool" target="_blank">Github</a>)</p>
+      <script src="js/scripts.js"></script>
     </div>
-    <p id="level"></p>
-    <script src="js/scripts.js"></script>
   </body>
 </html>

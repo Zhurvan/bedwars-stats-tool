@@ -1,18 +1,16 @@
 {
-  "name": "bedwars-stats-tool",
+  "name": "bedwarsstatapp2",
   "version": "1.0.0",
-  "description": "Finds relevant bedwars stats for a player given their Minecraft username",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
   },
-  "author": "Eamin Ahmed",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "electron": "^10.1.1"
-  },
-  "dependencies": {
-    "mojangjs": "^2.0.3",
-    "request": "^2.88.2"
+    "electron": "^13.2.1"
   }
 }
